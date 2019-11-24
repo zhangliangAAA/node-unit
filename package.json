@@ -1,0 +1,21 @@
+{
+  "name": "node-unit",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node ./node_modules/.bin/istanbul cover ./node_modules/mocha/bin/_mocha",
+    "fun-test": "mocha test/addFun.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "istanbul": "^0.4.5",
+    "mocha": "^6.2.2",
+    "should": "^13.2.3",
+    "supertest": "^4.0.2"
+  }
+}
