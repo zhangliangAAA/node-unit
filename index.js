@@ -2,11 +2,12 @@ const {
   addFun
 } = require("./src/tools/add")
 const express = require('express');
-const bodyParser = require("body-parser"); 
-
+const bodyParser = require("body-parser");
 const app = express();
 app.use(express.static('public'));
-app.use(bodyParser.urlencoded({ extended: false }));  
+app.use(bodyParser.urlencoded({
+  extended: false
+}));
 
 //  主页输出 "Hello World"
 app.get('/', function(req, res) {
@@ -15,7 +16,7 @@ app.get('/', function(req, res) {
 
 //  get 请求
 app.get('/getSum', function(req, res) {
-  const sum = addFun(req.query.a,req.query.b)
+  const sum = addFun(req.query.a, req.query.b)
   res.status(200).json({
     sum
   });
