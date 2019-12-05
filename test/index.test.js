@@ -4,14 +4,13 @@ const {
 } = require('../index');
 
 describe('Express-test', function() {
-  //Mocha提供了四种hooks用来做测试准备和测后清理工作
+  //Jest提供了四种hooks用来做测试准备和测后清理工作
   let server;
-  before(async function() {
+  beforeAll(async function() {
     server = await init()
   }); //在所有测试套件运行之前运行
-  after(function() {
+  afterAll(function() {
     server.close() //!!!重要
-    process.exit() //程序执行完毕，强制关闭进程
   }); //在所有测试套件运行之后运行
   beforeEach(function() {}); //在每个测试用例运行之前运行
   afterEach(function() {}); //在每个测试用例运行之后运行
