@@ -10,7 +10,7 @@ describe('Express-test', function() {
     server = await init()
   }); //在所有测试套件运行之前运行
   afterAll(function() {
-    server.close() //!!!重要
+    // server.close() //!!!重要 可在运行命令中增加 --detectOpenHandles --forceExit 强制Jest在所有测试运行完后退出
   }); //在所有测试套件运行之后运行
   beforeEach(function() {}); //在每个测试用例运行之前运行
   afterEach(function() {}); //在每个测试用例运行之后运行
