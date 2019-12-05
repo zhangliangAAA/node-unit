@@ -1,0 +1,13 @@
+{
+  "uuid": "9a2f1e27-eb2e-4540-86fb-f7763a51491f",
+  "parent": null,
+  "pid": 85448,
+  "argv": ["/usr/local/bin/node", "/Users/oyo/node-unit/node_modules/mocha/bin/_mocha", "test/index.js", "--exit"],
+  "execArgv": [],
+  "cwd": "/Users/oyo/node-unit",
+  "time": 1575515418023,
+  "ppid": 85447,
+  "root": "d40fc22d-81f2-41ad-9a79-0956eba55eff",
+  "coverageFilename": "/Users/oyo/node-unit/.nyc_output/9a2f1e27-eb2e-4540-86fb-f7763a51491f.json",
+  "files": ["/Users/oyo/node-unit/index.js", "/Users/oyo/node-unit/src/tools/add.js"]
+}

@@ -32,8 +32,21 @@ app.post('/missing', function(req, res) {
   res.send('Hello Missing');
 })
 
-const server = app.listen(8000, function() {
-  console.log(`server is runing at: http://localhost:8000`);
-})
+// const server = app.listen(8000, function() {
+//   console.log(`server is runing at: http://localhost:8000`);
+// })
 
-module.exports = server
+const init = () => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(app.listen(8000, function() {
+        console.log(`server is runing at: http://localhost:8000`);
+      }))
+    }, 1800);
+  })
+}
+
+module.exports = {
+  // server,
+  init
+}
