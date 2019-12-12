@@ -3,6 +3,15 @@ const {
 } = require("./src/tools/add")
 const express = require('express');
 const bodyParser = require("body-parser");
+const {
+  ucmReadyAll
+} = require('./src/apollo')
+
+const {
+  get,
+  config
+} = require('./src/config')
+
 const app = express();
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({
@@ -22,6 +31,11 @@ app.get('/getSum', function(req, res) {
   });
 })
 
+//  getUcm 请求
+app.get('/getUcm', function(req, res) {
+  res.status(200).json(config);
+})
+
 //  POST 请求
 app.post('/post', function(req, res) {
   res.send('Hello POST');
@@ -38,13 +52,18 @@ app.post('/missing', function(req, res) {
 
 const init = () => {
   return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve(app.listen(8000, function() {
-        console.log(`server is runing at: http://localhost:8000`);
-      }))
-    }, 1800);
+    ucmReadyAll().then(conf => {
+      console.log('ucmReady', conf);
+      setTimeout(() => {
+        resolve(app.listen(get('server.port'), function() {
+          console.log(`server is runing at: http://localhost:${get('server.port')}`);
+        }))
+      }, 1800);
+    })
   })
 }
+
+process.env.start && init()
 
 module.exports = {
   // server,
